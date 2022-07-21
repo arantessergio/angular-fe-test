@@ -15,11 +15,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 import { HttpClientModule } from '@angular/common/http';
+import { YearsWinnersComponent } from './years-winners/years-winners.component';
+import { StudiosWinsComponent } from './studios-wins/studios-wins.component';
+import { ProducersIntervalWinComponent } from './producers-interval-win/producers-interval-win.component';
+import { WinnerByYearComponent } from './winner-by-year/winner-by-year.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, AllMoviesComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    AllMoviesComponent,
+    YearsWinnersComponent,
+    StudiosWinsComponent,
+    ProducersIntervalWinComponent,
+    WinnerByYearComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -33,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatCardModule,
     MatTableModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

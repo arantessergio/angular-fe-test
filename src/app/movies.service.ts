@@ -19,7 +19,28 @@ export interface StudioWithWinCount {
 export interface StudioWithWinCountData {
   name?: string;
   winCount?:number;
-} 
+}
+
+export interface StudioIntervalBetweenWin {
+  min: Array<StudioRangeIntervalData>;
+  max: Array<StudioRangeIntervalData>;
+}
+
+export interface StudioRangeIntervalData {
+  producer?: string;
+  interval?: number;
+  previousWin?: number;
+  followingWin?: number;
+}
+
+export interface WinnerByYear {
+  id?: number;
+  year?: number;
+  title?: string;
+  studios?: Array<string>;
+  producers?: Array<string>;
+  winner?: boolean;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -51,19 +72,19 @@ export class MoviesService {
     });
   }
 
-  fetchRangeProducers() {
-    return new Promise((resolve) => {
+  fetchProducersIntervalBetweenWin() {
+    return new Promise<StudioIntervalBetweenWin>((resolve) => {
       this.http
-        .get(`${BASE_URL}?max-min-win-interval-for-producers`)
-        .subscribe((data) => resolve(data));
+        .get(`${BASE_URL}?projection=max-min-win-interval-for-producers`)
+        .subscribe((data) => resolve(data as StudioIntervalBetweenWin));
     });
   }
 
-  fetchMovieByYear(winner: boolean, year: number) {
-    return new Promise((resolve) => {
+  fetchMovieByYear(winner: boolean, year?: number) {
+    return new Promise<Array<WinnerByYear>>((resolve) => {
       this.http
         .get(`${BASE_URL}?winner=${winner}&year=${year}`)
-        .subscribe((data) => resolve(data));
+        .subscribe((data) => resolve(data as Array<WinnerByYear>));
     });
   }
 }

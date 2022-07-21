@@ -1,29 +1,6 @@
-.mat-column-year {
-  width: 200px;
-}
-.mat-column-winnerCount {
-  width: 200px;
-}
-.mat-column-name {
-  width: 400px;
-}
-.mat-column-winCount {
-  width: 100px;
-}
-
 .container {
   padding: 16px;
   display: grid;
-  justify-items: center;
-}
-
-.table-container {
-  /* display: flex;
-  justify-content: center; */
-  max-height: 50vh;
-  overflow: scroll;
-  /* border: 1px solid #c3c3c3;
-  padding: 8px; */
 }
 
 .template-columns {

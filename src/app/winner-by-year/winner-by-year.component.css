@@ -1,0 +1,31 @@
+.mat-column-id {
+  width: 120px;
+}
+
+.mat-column-year {
+  width: 150px;
+}
+
+.mat-column-title {
+  width: 400px;
+}
+
+.table-container {
+  height: 35vh;
+  max-height: 35vh;
+  overflow: scroll;
+  margin-bottom: 30px;
+}
+
+.card {
+  padding: 16px;
+  margin: 10px 20px 40px 20px;
+
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.table {
+  width: 100%;
+}
