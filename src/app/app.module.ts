@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { HttpClientModule } from '@angular/common/http';
 import { YearsWinnersComponent } from './years-winners/years-winners.component';
@@ -38,6 +41,7 @@ import { WinnerByYearComponent } from './winner-by-year/winner-by-year.component
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
@@ -47,6 +51,8 @@ import { WinnerByYearComponent } from './winner-by-year/winner-by-year.component
     MatCardModule,
     MatTableModule,
     MatInputModule,
+    MatPaginatorModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

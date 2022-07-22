@@ -15,7 +15,9 @@ export class WinnerByYearComponent implements OnInit {
 
   constructor(private moviesService: MoviesService) { }
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit(): Promise<void> {}
+
+  async fetchData() {
     const winnerByYearResult = await this.moviesService.fetchMovieByYear(
       true,
       this.winnerYear

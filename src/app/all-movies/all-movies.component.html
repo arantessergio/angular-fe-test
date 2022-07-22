@@ -1,1 +1,41 @@
-<p>all-movies works!</p>
+<div class="container">
+  <div class="card">
+    <h2>Lista de filmes</h2>
+    <div class="filter-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione o ano</mat-label>
+        <input matInput placeholder="Ex. 2019" type="number" [(ngModel)]="year">
+      </mat-form-field>
+      <mat-slide-toggle class="toggle" [checked]="winner" (change)="winner = $event.checked">Listar somente vencedores</mat-slide-toggle>
+      <button mat-stroked-button color="primary" (click)="fetchData()">Filtrar</button>
+      <button mat-stroked-button color="secondary" style="margin-left: 20px;" (click)="loadInitialResult()">Limpar filtros</button>
+    </div>
+    <div class="table-container" *ngIf="!!moviesDataSource.length">
+      <table mat-table [dataSource]="moviesDataSource" class="table">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="year">
+          <th mat-header-cell *matHeaderCellDef>Ano</th>
+          <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Título</th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="winner">
+          <th mat-header-cell *matHeaderCellDef>Vencedor</th>
+          <td mat-cell *matCellDef="let element"> {{element.winner ? 'Sim' : 'Não'}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="moviesColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: moviesColumns;"></tr>
+      </table>
+      <mat-paginator class="paginator" [length]="moviesResponse?.totalElements" [pageSize]="size" [pageSizeOptions]="[5, 10, 25, 100]" (page)="fetchDataPaginating($event)" aria-label="Select page">
+      </mat-paginator>
+    </div>
+    <span class="empty-message" *ngIf="!moviesDataSource.length">
+      Nenhum filme listado para o filtro selecionado.
+    </span>
+  </div>
+</div>

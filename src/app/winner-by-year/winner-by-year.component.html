@@ -1,9 +1,12 @@
 <div class="card">
   <h2>Visualizar filme vencedor por ano</h2>
-  <mat-form-field appearance="fill">
-    <mat-label>Selecione o ano</mat-label>
-    <input matInput placeholder="Ex. 2019" [type]="'number'">
-  </mat-form-field>
+  <div class="filter-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Selecione o ano</mat-label>
+      <input matInput placeholder="Ex. 2019" type="number" [(ngModel)]="winnerYear" class="input-search">
+    </mat-form-field>
+    <button mat-stroked-button class="button" color="primary" (click)="fetchData()">Filtrar</button>
+  </div>
   <div class="table-container">
     <table mat-table [dataSource]="winnersByYearDataSource" class="table">
       <ng-container matColumnDef="id">

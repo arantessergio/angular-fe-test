@@ -18,7 +18,7 @@ export interface StudioWithWinCount {
 
 export interface StudioWithWinCountData {
   name?: string;
-  winCount?:number;
+  winCount?: number;
 }
 
 export interface StudioIntervalBetweenWin {
@@ -42,17 +42,54 @@ export interface WinnerByYear {
   winner?: boolean;
 }
 
+export interface Movie {
+  id?: number;
+  producers?: Array<string>;
+  studios?: Array<string>;
+  title?: string;
+  winner?: boolean;
+  year?: number;
+}
+
+export interface Pageable {
+  offset?: number;
+  pageNumber?: number;
+  pageSize?: number;
+}
+
+export interface MoviesResponse {
+  content?: Array<Movie>;
+  empty?: boolean;
+  first?: boolean;
+  last?: boolean;
+  number?: number;
+  numberOfElements?: number;
+  pageable?: Pageable;
+  size?: number;
+  totalElements?: number;
+  totalPages?: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
   constructor(private http: HttpClient) {}
 
-  fetchAllMovies() {
-    return new Promise((resolve) => {
+  fetchAllMovies(
+    page: number = 1,
+    size: number = 20,
+    winner?: boolean,
+    year?: number
+  ) {
+    return new Promise<MoviesResponse>((resolve) => {
       this.http
-        .get(`${BASE_URL}?page=1&size=99`)
-        .subscribe((data) => resolve(data));
+        .get(
+          `${BASE_URL}?page=${page}&size=${size}${
+            winner ? `&winner=${winner}` : ''
+          }${year ? `&year=${year}` : ''}`
+        )
+        .subscribe((data) => resolve(data as MoviesResponse));
     });
   }
 

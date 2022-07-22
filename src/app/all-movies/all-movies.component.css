@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+}
+
+.mat-column-id {
+  width: 250px;
+}
+
+.mat-column-year {
+  width: 250px;
+}
+
+.mat-column-title {
+  width: 450px;
+}
+
+.mat-column-winner {
+  width: 200px;
+}
+
+.empty-message {
+  font-size: 16px;
+  color: #939393;
+}
+
+.table-container {
+  max-height: 80vh;
+  overflow: scroll;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.paginator {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.toggle {
+  margin: 0 20px;
+}
