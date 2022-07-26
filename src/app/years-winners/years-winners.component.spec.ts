@@ -24,4 +24,13 @@ describe('YearsWinnersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title Anos com mais vencedores', () => {
+    const fixture = TestBed.createComponent(YearsWinnersComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#years-winners-title')?.textContent).toContain(
+      'Anos com mais vencedores'
+    );
+  });
 });

@@ -23,4 +23,13 @@ describe('ProducersIntervalWinComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title Produtores com maior e menor intervalo entre vitórias', () => {
+    const fixture = TestBed.createComponent(ProducersIntervalWinComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(
+      compiled.querySelector('#producers-interval-wins-title')?.textContent
+    ).toContain('Produtores com maior e menor intervalo entre vitórias');
+  });
 });

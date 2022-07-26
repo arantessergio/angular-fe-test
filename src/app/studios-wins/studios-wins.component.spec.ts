@@ -23,4 +23,13 @@ describe('StudiosWinsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title Estúdios com mais vitórias', () => {
+    const fixture = TestBed.createComponent(StudiosWinsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#studio-wins-title')?.textContent).toContain(
+      'Estúdios com mais vitórias'
+    );
+  });
 });
