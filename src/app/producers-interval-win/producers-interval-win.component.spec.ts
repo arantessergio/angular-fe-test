@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MoviesService } from '../movies.service';
 
 import { ProducersIntervalWinComponent } from './producers-interval-win.component';
 
@@ -8,9 +10,10 @@ describe('ProducersIntervalWinComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProducersIntervalWinComponent ]
-    })
-    .compileComponents();
+      declarations: [ProducersIntervalWinComponent],
+      providers: [MoviesService],
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProducersIntervalWinComponent);
     component = fixture.componentInstance;

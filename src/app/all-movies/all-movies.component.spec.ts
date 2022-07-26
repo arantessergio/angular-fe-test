@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MoviesService } from '../movies.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AllMoviesComponent } from './all-movies.component';
 
@@ -8,9 +10,10 @@ describe('AllMoviesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AllMoviesComponent ]
-    })
-    .compileComponents();
+      declarations: [AllMoviesComponent],
+      providers: [MoviesService],
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AllMoviesComponent);
     component = fixture.componentInstance;

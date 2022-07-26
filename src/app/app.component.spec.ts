@@ -20,16 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'worst-movies'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('worst-movies');
-  });
-
-  it('should render title', () => {
+  it('should render title Frontend Angular Test', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('worst-movies app is running!');
+    expect(compiled.querySelector('#toolbar-title')?.textContent).toContain('Frontend Angular Test');
   });
 });
