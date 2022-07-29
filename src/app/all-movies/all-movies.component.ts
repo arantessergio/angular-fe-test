@@ -27,7 +27,7 @@ export class AllMoviesComponent implements OnInit {
   }
 
   async loadInitialResult() {
-    const result = await this.moviesService.fetchAllMovies(1, 20);
+    const result = await this.moviesService.fetchAllMovies(0, 20);
 
     this.winner = false;
     this.year = undefined;
@@ -51,7 +51,7 @@ export class AllMoviesComponent implements OnInit {
 
   async fetchData() {
     const result = await this.moviesService.fetchAllMovies(
-      this.pageEvent?.pageIndex ?? 0 + 1,
+      this.pageEvent?.pageIndex ?? 0,
       this.pageEvent?.pageSize ?? 20,
       this.winner,
       this.year
